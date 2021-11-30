@@ -1,0 +1,14 @@
+package _05_vault;
+
+import java.util.Random;
+
+/**
+ * 
+ * A vault with a secret code
+ *
+ */
+public class Vault {
+	public static void main(String[] args) {
+	
+	}
+}
