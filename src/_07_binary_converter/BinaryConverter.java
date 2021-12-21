@@ -1,9 +1,12 @@
 package _07_binary_converter;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -13,21 +16,29 @@ import javax.swing.JTextField;
 public class BinaryConverter {
 	public static void main(String[] args) {
 		
+		BinaryConverter bc = new BinaryConverter();
 //		JFrame.getFrames()
 		JFrame jf = new JFrame();
-		JPanel jp = new JPanel();
+		JPanel jp = new JPanel(new BorderLayout());
 		JTextField jtf = new JTextField(20);
-		jtf.addActionListener(new ActionListener(){
+		JButton jb = new JButton();
+		jb.setSize(10, 10);
+		JTextField answer = new JTextField(10);
+		jb.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				convert(jtf.getText());
+				String output = bc.convert(jtf.getText());
+				answer.setText(output);
 			}
 		});
-		jp.add(jtf);
-		jp.setBounds(40,80,200,200);    
+		jtf.setAlignmentX(5);
+		jp.add(jtf, BorderLayout.PAGE_START);
+		jp.add(jb, BorderLayout.CENTER);
+		jp.add(answer, BorderLayout.PAGE_END);
+		jp.setBounds(0,0,500,500);    
 	    jp.setBackground(Color.gray);  
 		jf.add(jp);
-		 jf.setSize(400,400);    
-         jf.setLayout(null);   
+		 jf.setSize(500,500);    
+         //jf.setLayout(null);   
 		jf.setVisible(true);
 		
 	}
